@@ -4,9 +4,9 @@ var config = {
     "development": {
         "id"       : 'alkindi-server-app',
         "port"     :  6000,
-        "entities" : ["event", "idol", "person", "place", "transcript", "tribe"],
+        "entities" : ["work", "authority"],
         "languages": ['ar', 'en'],
-        "apiRoot" : "/api",
+        "apiRoot" : "/alkindi",
         "no_auth_routes" : [
             'post:/session/.*',
             'get:/work/.*',
@@ -16,10 +16,10 @@ var config = {
     },
     "production": {
         "id"       : 'alkindi-server-app',
-        "entities" : ["work", "authority"]
+        "entities" : ["work", "authority"],
         "languages": ['ar', 'en'],
         "port"     : 6001,
-        "apiRoot"  : "/seera",
+        "apiRoot"  : "/alkindi",
         "no_auth_routes" : [
             'post:/session/.*',
             'get:/work/.*',
