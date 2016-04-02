@@ -3,6 +3,10 @@
 var BaseModel = require(framework.helpers.path.models('entity', true));
 var instance;
 
+var cfg = framework.helpers.settings.get("database");
+var modelHelper = framework.helpers.model;
+var db = modelHelper.getDatabase();
+
 function AuthorityModel() {
 
     BaseModel.call(this);
@@ -13,6 +17,21 @@ function AuthorityModel() {
 
     this.getNameField = function () {
         return "name"
+    };
+
+    this.getAll =   function(language) {
+
+        var entityName = this.getEntityName();
+        var nameField = this.getNameField();
+        var eCol = cfg.entity_collection;
+
+        var query = `
+        FOR e in ${eCol}
+            FILTER e._entity_type == '${entityName}'
+        RETURN {id: e.id, year_type: e.dates.type, born: e.dates.born.year, died: e.dates.died.year, name: e.strings['${language}']['${nameField}'], entity_type: e._entity_type}
+    `;
+
+        return modelHelper.getAllRecords(query);
     };
 
     this.getRelationshipSchema = function () {
