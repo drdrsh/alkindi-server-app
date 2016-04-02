@@ -19,21 +19,6 @@ function WorkModel() {
         return "title"
     };
     
-    this.getAll =   function(language) {
-
-        var entityName = this.getEntityName();
-        var nameField = this.getNameField();
-        var eCol = cfg.entity_collection;
-
-        var query = `
-        FOR e in ${eCol}
-            FILTER e._entity_type == '${entityName}'
-        RETURN {id: e.id, year_type: e.dates.type, year_value: e.dates.authored.year, name: e.strings['${language}']['${nameField}'], entity_type: e._entity_type}
-    `;
-
-        return modelHelper.getAllRecords(query);
-    };
-    
     this.getRelationshipSchema = function () {
 
         var fields = null;
