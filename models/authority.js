@@ -86,7 +86,7 @@ function AuthorityModel() {
             "required": true,
             "validation": null
         });
-
+        /*
         formDef.addML('titles', "الألقاب", true, false);
         formDef.addML('nicknames', "الكنى", true, false);
 
@@ -99,7 +99,7 @@ function AuthorityModel() {
         formDef.addVersion();
         formDef.addDatePair(['born', 'died'], ['تاريخ الميلاد', 'تاريخ الوفاة'], [false, false]);
         formDef.addRef();
-
+        */
         return formDef.getSchema();
     };
 

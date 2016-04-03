@@ -79,14 +79,14 @@ function WorkModel() {
         var formDef = framework.helpers.library.create("FormDefinition");
 
         formDef.addId();
-        formDef.add('name', {
+        formDef.add('title', {
             "type": "TextField",
             translatable: true,
             "label": "الاسم",
             "required": true,
             "validation": null
         });
-
+        /*
         formDef.addML('titles', "الألقاب", true, false);
         formDef.addML('nicknames', "الكنى", true, false);
 
@@ -99,7 +99,7 @@ function WorkModel() {
         formDef.addVersion();
         formDef.addDatePair(['born', 'died'], ['تاريخ الميلاد', 'تاريخ الوفاة'], [false, false]);
         formDef.addRef();
-
+        */
         return formDef.getSchema();
     };
 
